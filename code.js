@@ -4,7 +4,7 @@ function getComputerChoice() {
   return choice[Math.floor(Math.random() * choice.length)];
 }
 function playRound(playerSelection, computerSelection) {
-  // your code here!
+  //takes player amd com selection and roll rock paper scissors
   if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
@@ -21,8 +21,9 @@ function playRound(playerSelection, computerSelection) {
     return "Equal";
   }
 }
-
-let playerSelection = "Rock";
-playerSelection = playerSelection.toLowerCase();
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  let playerSelection = prompt("Choose your hand(rock, paper, scissors)");
+  playerSelection = playerSelection.toLowerCase();
+  console.log(playRound(playerSelection, computerSelection));
+}
