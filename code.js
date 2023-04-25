@@ -4,7 +4,7 @@ function getComputerChoice() {
   return choice[Math.floor(Math.random() * choice.length)];
 }
 function playRound(playerSelection, computerSelection) {
-  //takes player amd com selection and roll rock paper scissors
+  //takes player amd com selection and roll rock paper scissors rock>scissors>paper
   if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
@@ -17,8 +17,6 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "scissors" && computerSelection === "rock")
   ) {
     return computerCount++;
-  } else {
-    return playerCount + 0;
   }
 }
 let playerCount = 0;
@@ -40,3 +38,4 @@ function game() {
     console.log("Even");
   }
 }
+game();
