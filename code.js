@@ -10,20 +10,33 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+    return playerCount++;
   } else if (
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors") ||
     (playerSelection === "scissors" && computerSelection === "rock")
   ) {
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    return computerCount++;
   } else {
-    return "Equal";
+    return playerCount + 0;
   }
 }
-const computerSelection = getComputerChoice();
+let playerCount = 0;
+let computerCount = 0;
+
 function game() {
-  let playerSelection = prompt("Choose your hand(rock, paper, scissors)");
-  playerSelection = playerSelection.toLowerCase();
-  console.log(playRound(playerSelection, computerSelection));
+  for (let i = 0; i < 5; i++) {
+    const computerSelection = getComputerChoice();
+    let playerSelection = prompt("Choose your hand(rock, paper, scissors)");
+    playerSelection = playerSelection.toLowerCase();
+    playRound(playerSelection, computerSelection);
+    console.log(playerCount, computerCount);
+  }
+  if (playerCount > computerCount) {
+    console.log("You won against computer!");
+  } else if (playerCount < computerCount) {
+    console.log("You Lost against computer!");
+  } else {
+    console.log("Even");
+  }
 }
